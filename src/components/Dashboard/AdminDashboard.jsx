@@ -3,8 +3,9 @@ import Headers from '../others/Headers'
 
 const AdminDashboard = () => {
   return (
-    <div>
+    <div className='h-screen w-screen p-10'>
         <Headers />
+       
     </div>
   )
 }
