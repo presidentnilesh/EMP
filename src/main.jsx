@@ -11,6 +11,7 @@ createRoot(document.getElementById('root')).render(
     <AuthCOntext >
       <TaskContext >
         <App />
+        <h1>hi baby</h1>
       </TaskContext>
     </AuthCOntext>
   </StrictMode>,
