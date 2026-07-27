@@ -7,11 +7,10 @@ import TaskContext from './context/TaskContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
     <AuthCOntext >
       <TaskContext >
         <App />
       </TaskContext>
     </AuthCOntext>
-  </StrictMode>,
+  
 )
