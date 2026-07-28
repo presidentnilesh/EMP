@@ -12,6 +12,7 @@ const Login = ({handelLogin}) => {
     e.preventDefault()
     setPassword('')
     setEmail('')
+    
     console.log("Email is ", email , 'and password is ', password);
   
 }
