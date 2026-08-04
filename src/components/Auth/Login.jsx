@@ -2,18 +2,17 @@ import React, { useState } from 'react'
 
 const Login = ({handelLogin}) => {
 
-  console.log(handelLogin)
-  
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   
   const submitHandler =(e)=>{
     e.preventDefault()
+    handelLogin(email , password) 
     setPassword('')
     setEmail('')
     
-    console.log("Email is ", email , 'and password is ', password);
   
 }
 
