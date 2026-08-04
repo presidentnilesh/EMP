@@ -4,7 +4,7 @@ const AuthCOntext = ({children}) => {
   return (
     <div>
         {children}
-        <h1>gadhii</h1>
+
     </div>
   )
 }
