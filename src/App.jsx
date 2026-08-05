@@ -1,9 +1,10 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { use, useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import TaskNumber from './components/others/TaskNumber'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { getLocalStorage, setLocalStorage } from './utils/LocalStorage'
+import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
 
@@ -23,7 +24,9 @@ const App = () => {
   }
 
 
+  const data = useContext(AuthContext)
 
+  console.log(data)
 
   return (
     <>
@@ -31,7 +34,7 @@ const App = () => {
     {!user ? ( <Login handelLogin={handleLogin} /> ) : '' }
     {user ? (
       user === "Admin" ? <AdminDashboard /> : <EmployeeDashboard />
-    ) : null}
+    ) : ''}
     {/* <EmployeeDashboard /> */}
     {/* <AdminDashboard /> */}
     </>
