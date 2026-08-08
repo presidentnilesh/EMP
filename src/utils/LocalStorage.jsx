@@ -1,8 +1,17 @@
 const employees = [
   {
     id: 1,
-    email: "rahul.sharma@example.com",
+    firstName: "Rahul",
+    email: "a@a.com",
     password: "123",
+
+    taskNumbers: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
+
     tasks: [
       {
         active: true,
@@ -39,8 +48,17 @@ const employees = [
 
   {
     id: 2,
+    firstName: "Priya",
     email: "priya.singh@example.com",
     password: "123",
+
+    taskNumbers: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
+
     tasks: [
       {
         active: true,
@@ -87,8 +105,17 @@ const employees = [
 
   {
     id: 3,
+    firstName: "Amit",
     email: "amit.kumar@example.com",
     password: "123",
+
+    taskNumbers: {
+      active: 2,
+      newTask: 1,
+      completed: 2,
+      failed: 1
+    },
+
     tasks: [
       {
         active: true,
@@ -145,8 +172,17 @@ const employees = [
 
   {
     id: 4,
+    firstName: "Neha",
     email: "neha.verma@example.com",
     password: "123",
+
+    taskNumbers: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
+
     tasks: [
       {
         active: true,
@@ -183,8 +219,17 @@ const employees = [
 
   {
     id: 5,
+    firstName: "Rohit",
     email: "rohit.gupta@example.com",
     password: "123",
+
+    taskNumbers: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
+
     tasks: [
       {
         active: true,
@@ -199,7 +244,7 @@ const employees = [
       {
         active: false,
         newTask: false,
-        completed:true,
+        completed: true,
         failed: false,
         taskTitle: "Responsive Design",
         taskDescription: "Make website mobile friendly.",
@@ -233,10 +278,12 @@ const employees = [
 const admin = [
   {
     id: 100,
+    firstName: "Vikram",
     email: "admin@example.com",
     password: "123"
   }
 ];
+
 
 export { employees, admin };
 

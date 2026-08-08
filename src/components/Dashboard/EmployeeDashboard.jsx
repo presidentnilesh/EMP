@@ -4,14 +4,15 @@ import TaskNumber from '../others/TaskNumber'
 import TaskList from '../TaskList/TaskList'
 
 
-const EmployeeDashboard = () => {
+const EmployeeDashboard = ({data}) => {
+  
   return (
     <div className='p-10 bg-[#1C1C1C] h-screen w-screen'>
-        <Headers />
-        <TaskNumber />
-        <TaskList />
+        <Headers data={data} />
+        <TaskNumber data={data}/>
+        <TaskList data={data}/>
     </div>
   )
 }
 
-export default EmployeeDashboard
+export default EmployeeDashboard 
