@@ -21,24 +21,24 @@ const App = () => {
   
 
 
-  const handleLogin = (email , password)=>{
-    if(AuthContext && authData?.admin.find((e)=>email==e.email && password==e.password )){
+ const handleLogin = (email, password) => {
+    const loggedInAdmin = authData?.admin.find((e) => email === e.email && password === e.password)
+    if (loggedInAdmin) {
       setUser("Admin")
-      setLoggedInUserData(adminUser)
-      localStorage.setItem('loggedInUser',JSON.stringify({role:"Admin" , user:adminUser} ))
-    }
-    else if(AuthContext){
-      const employee = authData?.employees.find((e)=>email == e.email && password == e.password)
-      if (employees){
+      setLoggedInUserData(loggedInAdmin)
+      localStorage.setItem('loggedInUser', JSON.stringify({ role: "Admin", user: loggedInAdmin }))
+    } else {
+      const loggedInEmployee = authData?.employees.find((e) => email === e.email && password === e.password)
+      if (loggedInEmployee) {
         setUser('Employee')
-        setLoggedInUserData(employees)
-        localStorage.setItem('loggedInUser',JSON.stringify({role:"Employees" }))
+        setLoggedInUserData(loggedInEmployee)
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: "Employee", user: loggedInEmployee }))
+      } else {
+        alert("Invalid Credentials")
       }
     }
-    else {
-      alert("Invalid Ceadintials")
-    }
-  }
+}
+
 
 
   const data = useContext(AuthContext)
@@ -48,9 +48,9 @@ const App = () => {
     {/* it means if there will be user then nohing will display and if there will be not a user then the login page eill appear */}
     {!user ? ( <Login handelLogin={handleLogin} /> ) : '' }
     {user ? (
-      user === "Admin" ? <AdminDashboard /> : <EmployeeDashboard data={loggedInUserData}/>
+      user === "Admin" ? <AdminDashboard data={loggedInUserData}/> : <EmployeeDashboard data={loggedInUserData}/>
     ) : ''}
-    {/* <EmployeeDashboard data={loggedInUserData/> */}
+    {/* <EmployeeDashboard data={loggedInUserData}/> */}
     {/* <AdminDashboard /> */}
     </>
   )
