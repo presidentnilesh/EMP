@@ -9,7 +9,7 @@ const TaskNumber = ({data}) => {
                 <h3 className='text-xl mt-4 font-medium'>New Task</h3>
             </div>
             <div className='p-7 rounded-xl w-[45%] bg-yellow-400 '>
-                <h2 className='text-3xl font-semibold'>{data.taskNumbers.active}</h2>
+                <h2 className='text-3xl font-semibold'>{data.taskNumbers.active }</h2>
                 <h3 className='text-xl mt-4 font-medium'>Active</h3>
             </div>
         </div>
