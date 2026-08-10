@@ -1,5 +1,3 @@
-localStorage.clear()
-
 const employees = [
   {
     id: 1,
@@ -21,9 +19,11 @@ const employees = [
         completed: false,
         failed: false,
         taskTitle: "Design Login Page",
-        taskDescription: "Create a responsive login page using React and Tailwind CSS.",
+        taskDescription:
+          "Create a responsive login page using React and Tailwind CSS.",
         taskDate: "2026-07-21",
-        category: "Design"
+        category: "Design",
+        priority: "High"
       },
       {
         active: false,
@@ -33,7 +33,8 @@ const employees = [
         taskTitle: "Fix Navbar",
         taskDescription: "Resolve alignment issues in the navigation bar.",
         taskDate: "2026-07-18",
-        category: "Frontend"
+        category: "Frontend",
+        priority: "Medium"
       },
       {
         active: false,
@@ -43,7 +44,8 @@ const employees = [
         taskTitle: "API Integration",
         taskDescription: "Integrate employee login API.",
         taskDate: "2026-07-19",
-        category: "Backend"
+        category: "Backend",
+        priority: "High"
       }
     ]
   },
@@ -70,7 +72,8 @@ const employees = [
         taskTitle: "Create Dashboard",
         taskDescription: "Develop employee dashboard UI.",
         taskDate: "2026-07-22",
-        category: "Frontend"
+        category: "Frontend",
+        priority: "High"
       },
       {
         active: true,
@@ -80,7 +83,8 @@ const employees = [
         taskTitle: "Dark Mode",
         taskDescription: "Implement dark mode toggle.",
         taskDate: "2026-07-23",
-        category: "UI"
+        category: "UI",
+        priority: "Medium"
       },
       {
         active: false,
@@ -90,7 +94,8 @@ const employees = [
         taskTitle: "Footer Design",
         taskDescription: "Complete footer section.",
         taskDate: "2026-07-17",
-        category: "Design"
+        category: "Design",
+        priority: "Low"
       },
       {
         active: false,
@@ -100,7 +105,8 @@ const employees = [
         taskTitle: "Payment Module",
         taskDescription: "Implement payment page.",
         taskDate: "2026-07-16",
-        category: "Backend"
+        category: "Backend",
+        priority: "High"
       }
     ]
   },
@@ -127,7 +133,8 @@ const employees = [
         taskTitle: "Profile Page",
         taskDescription: "Create employee profile page.",
         taskDate: "2026-07-20",
-        category: "Frontend"
+        category: "Frontend",
+        priority: "Medium"
       },
       {
         active: false,
@@ -137,7 +144,8 @@ const employees = [
         taskTitle: "Database Setup",
         taskDescription: "Configure MongoDB collections.",
         taskDate: "2026-07-15",
-        category: "Database"
+        category: "Database",
+        priority: "High"
       },
       {
         active: true,
@@ -147,7 +155,8 @@ const employees = [
         taskTitle: "Notification System",
         taskDescription: "Add notification feature.",
         taskDate: "2026-07-24",
-        category: "Backend"
+        category: "Backend",
+        priority: "High"
       },
       {
         active: false,
@@ -157,7 +166,8 @@ const employees = [
         taskTitle: "Email Service",
         taskDescription: "Implement email verification.",
         taskDate: "2026-07-14",
-        category: "Backend"
+        category: "Backend",
+        priority: "Medium"
       },
       {
         active: false,
@@ -167,7 +177,8 @@ const employees = [
         taskTitle: "Bug Fix",
         taskDescription: "Fix dashboard rendering issue.",
         taskDate: "2026-07-13",
-        category: "Bug"
+        category: "Bug",
+        priority: "Low"
       }
     ]
   },
@@ -194,7 +205,8 @@ const employees = [
         taskTitle: "Landing Page",
         taskDescription: "Design company landing page.",
         taskDate: "2026-07-25",
-        category: "Design"
+        category: "Design",
+        priority: "High"
       },
       {
         active: false,
@@ -204,7 +216,8 @@ const employees = [
         taskTitle: "Logo Update",
         taskDescription: "Replace old logo with new branding.",
         taskDate: "2026-07-18",
-        category: "Design"
+        category: "Design",
+        priority: "Low"
       },
       {
         active: true,
@@ -214,7 +227,8 @@ const employees = [
         taskTitle: "Performance Optimization",
         taskDescription: "Optimize React components.",
         taskDate: "2026-07-26",
-        category: "Performance"
+        category: "Performance",
+        priority: "Medium"
       }
     ]
   },
@@ -241,7 +255,8 @@ const employees = [
         taskTitle: "Authentication",
         taskDescription: "Implement JWT authentication.",
         taskDate: "2026-07-27",
-        category: "Security"
+        category: "Security",
+        priority: "High"
       },
       {
         active: false,
@@ -251,7 +266,8 @@ const employees = [
         taskTitle: "Responsive Design",
         taskDescription: "Make website mobile friendly.",
         taskDate: "2026-07-20",
-        category: "Frontend"
+        category: "Frontend",
+        priority: "Medium"
       },
       {
         active: false,
@@ -261,7 +277,8 @@ const employees = [
         taskTitle: "Search Feature",
         taskDescription: "Add search functionality.",
         taskDate: "2026-07-19",
-        category: "Feature"
+        category: "Feature",
+        priority: "High"
       },
       {
         active: true,
@@ -271,7 +288,8 @@ const employees = [
         taskTitle: "Settings Page",
         taskDescription: "Develop account settings page.",
         taskDate: "2026-07-28",
-        category: "Frontend"
+        category: "Frontend",
+        priority: "Low"
       }
     ]
   }
@@ -286,18 +304,16 @@ const admin = [
   }
 ];
 
-
 export { employees, admin };
 
-export const setLocalStorage=()=>{
-  localStorage.setItem('Employees',JSON.stringify(employees))
-  localStorage.setItem('Admin',JSON.stringify(admin))  
+export const setLocalStorage = () => {
+  localStorage.setItem("Employees", JSON.stringify(employees));
+  localStorage.setItem("Admin", JSON.stringify(admin));
+};
 
-  
-}
+export const getLocalStorage = () => {
+  const employees = JSON.parse(localStorage.getItem("Employees")) || [];
+  const admin = JSON.parse(localStorage.getItem("Admin")) || [];
 
-export const getLocalStorage=()=>{
-  const data = localStorage.getItem("Employees")
-
-  return {employees , admin}  
-}
+  return { employees, admin };
+};

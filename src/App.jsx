@@ -18,7 +18,7 @@ const App = () => {
     if (loggedInUser){
       const userData = JSON.parse(loggedInUser)
       setUser(userData.role)
-      setLoggedInUserData(userData.data)
+      setLoggedInUserData(userData.user)
     }
   } ,[])
 
@@ -27,13 +27,13 @@ const App = () => {
     if (loggedInAdmin) {
       setUser("Admin")
       setLoggedInUserData(loggedInAdmin)
-      localStorage.setItem('loggedInUser', JSON.stringify({ role: "Admin", data:admin}))
+      localStorage.setItem('loggedInUser', JSON.stringify({ role: "Admin", user:loggedInAdmin}))
     } else {
       const loggedInEmployee = authData?.employees.find((e) => email === e.email && password === e.password)
       if (loggedInEmployee) {
         setUser('Employee')
         setLoggedInUserData(loggedInEmployee)
-        localStorage.setItem('loggedInUser', JSON.stringify({ role: "Employee", data:employees }))
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: "Employee", user:loggedInEmployee }))
       } else {
         alert("Invalid Credentials")
       }
