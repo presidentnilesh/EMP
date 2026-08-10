@@ -49,7 +49,7 @@ const App = () => {
     {/* it means if there will be user then nohing will display and if there will be not a user then the login page eill appear */}
     {!user ? ( <Login handelLogin={handleLogin} /> ) : '' }
     {user ? (
-      user === "Admin" ? <AdminDashboard changeUser={setUser}/> : <EmployeeDashboard changeUser={setUser}/>
+      user === "Admin" ? <AdminDashboard data={loggedInUserData} changeUser={setUser}/> : <EmployeeDashboard data={loggedInUserData} changeUser={setUser}/>
     ) : ''}
     {/* <EmployeeDashboard data={loggedInUserData}/> */}
     {/* <AdminDashboard /> */}

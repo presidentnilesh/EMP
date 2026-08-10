@@ -8,7 +8,7 @@ const AdminDashboard = ({data}) => {
     <div className='min-h-screen w-screen p-10 flex flex-col bg-black'>
         <Headers data={data} />
         <CreateTask data={data}/>
-        <AllTask data={data} />
+        <AllTask  />
     </div>
   )
 }

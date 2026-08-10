@@ -14,11 +14,11 @@ const [task, setTask] = useState({})
     const submitHandeler = (e)=>{
         e.preventDefault()
         
-        setTask({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed: false,failed: true})
-        console.log(ask);
+        setTask({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed:false,failed:true}) 
 
-        const data = (localStorage.getItem('Employees'))
+        const data = JSON.parse(localStorage.getItem("Employees"))
         console.log(data)
+        
         
     }
   return (
