@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import NewTask from '../TaskList/NewTask'
 
 const CreateTask = () => {
 
@@ -8,15 +9,17 @@ const CreateTask = () => {
     const [asignTo, setAsignTo] = useState('')
     const [category, setCategory] = useState('')
 
+const [task, setTask] = useState({})
+
     const submitHandeler = (e)=>{
         e.preventDefault()
-        setAsignTo('')
-        setCategory('')
-        setTaskDate('')
-        setTaskTitle('')
-        settaskDescription('')
+        
+        setTask({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed: false,failed: true})
+        console.log(ask);
 
-        console.log(taskTitle , taskDate , taskDescription , asignTo , category)
+        const data = (localStorage.getItem('Employees'))
+        console.log(data)
+        
     }
   return (
         <div>
