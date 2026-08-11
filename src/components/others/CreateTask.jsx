@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import NewTask from '../TaskList/NewTask'
+import { AuthContext } from '../../context/AuthProvider'
 
 const CreateTask = () => {
+
+    const [userData , setUserData] = useContext(AuthContext)
 
     const [taskTitle, setTaskTitle] = useState('')
     const [taskDescription, settaskDescription] = useState('')
@@ -11,20 +14,22 @@ const CreateTask = () => {
 
     const [newTasks, setNewTasks] = useState({})
 
+
     const submitHandeler = (e)=>{
         e.preventDefault()
         
         setNewTasks({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed:false,failed:false}) 
 
         const data = JSON.parse(localStorage.getItem("Employees"))
+        console.log(userData.employees)
         data.forEach(function(elem){
             if(asignTo == elem.firstName){
                 elem.tasks.push(newTasks)   // it is use to newtask to the elem 
-                console.log(elem)
+                elem.taskNumbers.newTask = elem.taskNumbers.newTask+1
             }
         })
         
-
+    console.log(data)
     localStorage.setItem("Employees", JSON.stringify(data))
         setAsignTo('')
         setCategory('')
@@ -92,7 +97,7 @@ const CreateTask = () => {
                     }}
                     className= ' text-white border px-2 bg-[#1c1c1c]'  name="" id="" cols='40' rows='10'></textarea>
 
-                    <button className='mt-4 size-fit bg-white text-sm text-black rounded px-2'>Create Task</button>
+                    <button className='mt-4 size-fit h-10 w-full bg-green-400 text-sm text-black rounded px-2'>Create Task</button>
 
                 </div>
 
