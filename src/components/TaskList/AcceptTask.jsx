@@ -1,7 +1,6 @@
 import React from 'react'
 
 const AcceptTask = ({data}) => {
-  console.log(data.taskTitle)
   return (
  
     <div className='shrink-0 h-full w-75 bg-green-400 rounded-xl flex flex-col '>
