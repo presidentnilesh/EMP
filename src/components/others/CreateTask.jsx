@@ -21,7 +21,7 @@ const CreateTask = () => {
         setNewTasks({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed:false,failed:false}) 
 
         const data = userData
-        console.log(data)
+
 
         data.forEach(function(elem){
             if(asignTo == elem.firstName){
@@ -32,7 +32,7 @@ const CreateTask = () => {
         
     setUserData(data)
     console.log(data)
-    
+
         setAsignTo('')
         setCategory('')
         setTaskDate('')

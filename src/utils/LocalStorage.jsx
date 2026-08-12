@@ -188,7 +188,7 @@ const employees = [
   {
     id: 4,
     firstName: "Neha",
-    email: "neha.verma@example.com",
+    email: "neha@n.com",
     password: "123",
 
     taskNumbers: {
@@ -301,7 +301,7 @@ const admin = [
   {
     id: 100,
     firstName: "Vikram",
-    email: "admin@example.com",
+    email: "admin@admin.com",
     password: "123"
   }
 ];
