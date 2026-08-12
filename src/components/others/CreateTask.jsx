@@ -20,8 +20,9 @@ const CreateTask = () => {
         
         setNewTasks({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed:false,failed:false}) 
 
-        const data = JSON.parse(localStorage.getItem("Employees"))
-        console.log(userData.employees)
+        const data = userData
+        console.log(data)
+
         data.forEach(function(elem){
             if(asignTo == elem.firstName){
                 elem.tasks.push(newTasks)   // it is use to newtask to the elem 
@@ -29,16 +30,19 @@ const CreateTask = () => {
             }
         })
         
+    setUserData(data)
     console.log(data)
-    localStorage.setItem("Employees", JSON.stringify(data))
+    
         setAsignTo('')
         setCategory('')
         setTaskDate('')
         setTaskTitle('')
         settaskDescription('')
-        
     }
-  return (
+
+    
+
+    return (
         <div>
             <form onSubmit={(e)=>{
                 submitHandeler(e)
