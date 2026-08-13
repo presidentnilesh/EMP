@@ -18,28 +18,46 @@ const CreateTask = () => {
     const submitHandeler = (e)=>{
         e.preventDefault()
         
-        setNewTasks({taskTitle , taskDate , taskDescription , asignTo , category , active:false , NewTask:true ,completed:false,failed:false}) 
+          const newTask = {
+            taskTitle,
+            taskDate,
+            taskDescription,
+            asignTo,
+            category,
+            active: false,
+            newTask: true,      
+            completed: false,
+            failed: false
+        }
 
-        const data = userData
+        // Find matching employee (case-insensitive)
+        const matchedEmployee = userData.find(
+            (elem) => asignTo.trim().toLowerCase() === elem.firstName.toLowerCase()
+        )
 
+        if (!matchedEmployee) {
+            alert(`Employee "${asignTo}" not found`)
+            return
+        }
 
-        data.forEach(function(elem){
-            if(asignTo == elem.firstName){
-                elem.tasks.push(newTasks)   // it is use to newtask to the elem 
-                elem.taskNumbers.newTask = elem.taskNumbers.newTask+1
-            }
-        })
-        
-    setUserData(data)
-    console.log(data)
+        // Update tasks array and counters
+        matchedEmployee.tasks.push(newTask)
+        matchedEmployee.taskNumbers.newTask += 1
+        matchedEmployee.taskNumbers.active += 1
 
+        // Save updated data to localStorage
+        localStorage.setItem('Employees', JSON.stringify(userData))
+
+        // Update React context
+        setUserData([...userData])
+        console.log(userData)
+        // Clear form
         setAsignTo('')
         setCategory('')
         setTaskDate('')
         setTaskTitle('')
         settaskDescription('')
     }
-
     
 
     return (
